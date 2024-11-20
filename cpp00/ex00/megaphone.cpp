@@ -17,7 +17,6 @@ int main(int argc, char const *argv[])
     }
     else
     {
-
         for (int i = 1; argv[i]; i++)
         {
             str = argv[i];

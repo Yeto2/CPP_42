@@ -14,7 +14,6 @@ private:
     std::string phone_number;
     std::string darkest_secret;
 public:
-    // Contact();
     void fill_contact(const std::string& f_n, const std::string& l_n,
         const std::string& n_n, const std::string& p_n, const std::string& d_s);
 

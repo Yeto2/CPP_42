@@ -15,9 +15,9 @@ private:
     int index;
 public:
     Phonebook();
-
     void add(const Contact& contact);
     void search_contact();
+    ~Phonebook();
 };
 
 

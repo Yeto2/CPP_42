@@ -1,6 +1,6 @@
 CC = c++ -std=c++98 -Wall -Wextra -Werror
-NAME = myphone
-SRC = myphone.cpp Contact.cpp phonebook.cpp
+NAME = zombie
+SRC = main.cpp Zombie.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all:$(NAME)
@@ -8,7 +8,7 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o:%.cpp contact.hpp phonebook.hpp
+%.o:%.cpp  Zombie.hpp
 	$(CC) -c $< -o $@
 
 clean:
