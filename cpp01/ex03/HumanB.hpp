@@ -6,7 +6,7 @@
 /*   By: yessemna <yessemna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:36:14 by yessemna          #+#    #+#             */
-/*   Updated: 2024/11/22 17:58:30 by yessemna         ###   ########.fr       */
+/*   Updated: 2024/11/22 23:12:53 by yessemna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,16 @@ class HumanB
     
 private:
     std::string name;
-    Weapon weapon;
+    Weapon* weapon;
 public:
-    HumanB(const std::string& humanName)
+    HumanB(const std::string& humanName) : name(humanName), weapon(nullptr){};
+    void setWeapon(Weapon &w)
     {
-        name = humanName;
-    };
-    void setWeapon(Weapon w)
-    {
-        weapon = w;
+        weapon = &w;
     }
     void attack()
     {
-        std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
     };
     ~HumanB(){};
 };
