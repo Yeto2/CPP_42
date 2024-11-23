@@ -6,7 +6,7 @@
 /*   By: yessemna <yessemna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 10:39:13 by yessemna          #+#    #+#             */
-/*   Updated: 2024/11/23 19:05:16 by yessemna         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:50:07 by yessemna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void ft_replace(std::string& filename, std::string& s1, std::string& s2)
     (void)s2;
     std::string content;
     std::string line;
-    
+
     std::ifstream inputFile(filename);
-    std::cout << "hello" << std::endl;
     if(!inputFile.is_open())
-        throw std::runtime_error("Error: Unable to open file " + filename);    
+        throw std::runtime_error("Error: Unable to open file " + filename);
     while (std::getline(inputFile, line))
     {
         content += line + "\n";
@@ -39,8 +38,11 @@ void ft_replace(std::string& filename, std::string& s1, std::string& s2)
         content.insert(pos, s2);
         pos += s2.length();
     }
-    // still need to write the changes in the file test.replace
-    std::cout << content << std::endl;
+    std::ofstream outputFile(filename + ".replace");
+    if(!outputFile.is_open())
+        throw std::runtime_error("Error: Unable to open file " + filename + ".replace");
+    outputFile << content;
+    outputFile.close();
 }
 
 int main(int argc, char const *argv[])

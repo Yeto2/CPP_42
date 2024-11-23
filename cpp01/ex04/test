@@ -1,0 +1,3 @@
+this is a simple test file for this exercise
+the goal is to replace the occurance of s1 with s2
+and save the resault in a file caled "test.replace"
