@@ -1,6 +1,6 @@
 CC = c++ -std=c++98 -Wall -Wextra -Werror
-NAME = account
-SRC =  Account.cpp tests.cpp
+NAME = harlFilter
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all:$(NAME)
@@ -8,7 +8,7 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o:%.cpp Account.hpp
+%.o:%.cpp Harl.hpp
 	$(CC) -c $< -o $@
 
 clean:

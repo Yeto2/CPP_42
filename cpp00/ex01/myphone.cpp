@@ -70,12 +70,18 @@ void    fill_line(std::istream& input, std::string& cmd, std::string msg, int fl
     }
 }
 
-int main()
+int main(int ac, char *av[])
 {
     Phonebook pb;
     std::string msg;
     int flag = 0;
 
+    (void)av;
+    if(ac != 1)
+    {
+        std::cout << "No argument needed .\n";
+        return 1;
+    }
     std::cout << "Enter a command (ADD, SEARCH, EXIT) : ";
     std::string cmd;
     while (1)

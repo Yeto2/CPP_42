@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
             str = argv[i];
             to_upper(str);
             std::cout << " ";
-        }
+        } 
         std::cout << std::endl;
     }
     return 0;

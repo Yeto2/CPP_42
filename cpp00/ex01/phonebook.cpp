@@ -81,7 +81,6 @@ void    get_safe_index(std::istream& input, Contact contacts[], int count, int& 
         get_safe_index(input, contacts, count, flag);
         return;
     }
-    // i = std::stoi(str);
     i = stoint(str);
     if (i >= 0 && i < count)
     {
@@ -117,3 +116,5 @@ void Phonebook::search_contact()
     get_safe_index(std::cin, contacts, count, flag);
     std::cout << "Enter a valid command: (ADD, SEARCH, EXIT) : ";
 }
+
+Phonebook::~Phonebook() {}
