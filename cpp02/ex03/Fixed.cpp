@@ -13,6 +13,8 @@ Fixed::Fixed(const Fixed& obj)
 
 Fixed &Fixed::operator=(const Fixed& obj)
 {
+    if (this == &obj)
+        return (*this);
     setRawBits(obj.getRawBits());
     return (*this);
 }
@@ -34,12 +36,12 @@ Fixed::Fixed(const int number)
 
 Fixed::Fixed(const float number)
 {
-    _fixed = static_cast<int>(number * (1 << fract_bits));
+    _fixed = roundf(number * (1 << fract_bits));
 }
 
 float Fixed::toFloat( void ) const
 {
-    return (static_cast<float>(_fixed) / (1 << fract_bits ));
+    return ((float)(_fixed) / (1 << fract_bits ));
 }
 
 int Fixed::toInt( void ) const
