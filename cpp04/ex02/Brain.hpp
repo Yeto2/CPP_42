@@ -18,7 +18,7 @@ class Brain
         const std::string getIdea(int i) const;
         void setIdea(int i, std::string idea);
         const std::string *get_addr(int i) const;
-        ~Brain();
+        virtual ~Brain();
 };
 
 

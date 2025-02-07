@@ -3,13 +3,19 @@
 #include "Animal.hpp"
 #include "WrongCat.hpp"
 
-// void l()
-// {
-//     system("leaks Polymorphism");
-// }
+void l()
+{
+    system("leaks Polymorphism");
+}
 int main()
 {
 // atexit(l);
+
+// ---------------------------------------- to test Abstact class
+
+// const Animal *d = new Animal();
+// d->makeSound();
+
 // ---------------------------------------- create and animals
 
     const Animal *cage[10];
