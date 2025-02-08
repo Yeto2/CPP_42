@@ -5,11 +5,17 @@
 #include "AMateria.hpp"
 
 
+struct Node {
+    AMateria* materia;
+    Node* next;
+};
+
 class Character : public ICharacter
 {
     private:
         std::string name;
         AMateria *inventory[4];
+        Node* floor;
     public:
         Character();
         Character(const std::string &name);
@@ -23,5 +29,6 @@ class Character : public ICharacter
 
         virtual ~Character();
 };
+
 
 #endif

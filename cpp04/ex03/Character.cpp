@@ -62,12 +62,23 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    if(idx >= 0 && idx < 4)
+    if (this->inventory[idx] == NULL)
     {
-        std::cout << this->name << " Unequip a Materia" << std::endl;
+        std::cout << "Material already Unequipped" << std::endl;
+        return;
+    }
+    if (idx >= 0 && idx < 4)
+    {
+        AMateria* materiaToUnequip = inventory[idx];
         this->inventory[idx] = NULL;
+        Node* newNode = new Node;
+        newNode->materia = materiaToUnequip;
+        newNode->next = floor;
+        floor = newNode;
+        std::cout << this->name << " Unequipped a Materia" << std::endl;
     }
 }
+
 
 void Character::use(int idx, ICharacter& target)
 {
@@ -84,5 +95,12 @@ Character::~Character()
     {
         if(this->inventory[i])
             delete this->inventory[i];
+    }
+    while (floor)
+    {
+        Node* temp = floor;
+        floor = floor->next;
+        delete temp->materia; // Delete the Materia object
+        delete temp; // Delete the node
     }
 }
