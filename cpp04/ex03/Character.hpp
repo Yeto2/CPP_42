@@ -16,6 +16,7 @@ class Character : public ICharacter
         std::string name;
         AMateria *inventory[4];
         Node* floor;
+        static int flag;
     public:
         Character();
         Character(const std::string &name);

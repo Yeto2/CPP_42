@@ -47,6 +47,11 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+    if(!m)
+    {
+        std::cout << this->name << " Cannot equip the materia, it is NULL" << std::endl;
+        return;
+    }
     for(int i = 0; i < 4; i++)
     {
         if(this->inventory[i] == NULL)
@@ -98,9 +103,9 @@ Character::~Character()
     }
     while (floor)
     {
-        Node* temp = floor;
+        Node *temp = floor;
         floor = floor->next;
-        delete temp->materia; // Delete the Materia object
-        delete temp; // Delete the node
+        delete temp->materia;
+        delete temp;
     }
 }
